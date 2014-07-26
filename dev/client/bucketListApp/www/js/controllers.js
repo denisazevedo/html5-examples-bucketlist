@@ -15,8 +15,8 @@ angular.module('bucketList.controllers', ['bucketList.services'])
         var email = this.user.email;
         var password = this.user.password;
         if(!email || !password) {
-          $rootScope.notify("Please enter valid credentials");
-          return false;
+            $rootScope.notify("Please enter valid credentials");
+            return false;
         }
         $rootScope.show('Please wait.. Authenticating');
         API.signin({
@@ -46,8 +46,8 @@ angular.module('bucketList.controllers', ['bucketList.services'])
         var password = this.user.password;
         var uName = this.user.name;
         if(!email || !password || !uName) {
-          $rootScope.notify("Please enter valid data");
-          return false;
+            $rootScope.notify("Please enter valid data");
+            return false;
         }
         $rootScope.show('Please wait.. Registering');
         API.signup({
@@ -60,14 +60,14 @@ angular.module('bucketList.controllers', ['bucketList.services'])
             $window.location.href = ('#/bucket/list');
         }).error(function (error) {
             $rootScope.hide();
-          if(error.error && error.error.code == 11000)
-          {
-            $rootScope.notify("A user with this email already exists");
-          }
-          else
-          {
-            $rootScope.notify("Oops something went wrong, Please try again!");
-          }
+            if(error.error && error.error.code == 11000)
+            {
+                $rootScope.notify("A user with this email already exists");
+            }
+            else
+            {
+                $rootScope.notify("Oops something went wrong, Please try again!");
+            }
 
         });
     }
@@ -186,16 +186,16 @@ angular.module('bucketList.controllers', ['bucketList.services'])
 
 .controller('newCtrl', function ($rootScope, $scope, API, $window) {
         $scope.data = {
-          item: ""
-      };
+            item: ""
+        };
 
         $scope.close = function () {
             $scope.modal.hide();
         };
 
         $scope.createNew = function () {
-      var item = this.data.item;
-          if (!item) return;
+            var item = this.data.item;
+            if (!item) return;
             $scope.modal.hide();
             $rootScope.show();
 
